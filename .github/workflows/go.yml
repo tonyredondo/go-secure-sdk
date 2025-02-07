@@ -125,6 +125,8 @@ jobs:
       -
         name: Run tests
         run: gotestsum --format short-verbose ./...
+        env:
+          DD_TRACE_DEBUG: true
 
   tests-on-windows:
     name: "Tests (windows)"
@@ -171,6 +173,8 @@ jobs:
       -
         name: Run tests
         run: gotestsum --format short-verbose ./...
+        env:
+          DD_TRACE_DEBUG: true
 
   tests-on-macos:
     name: "Tests (darwin)"
@@ -217,4 +221,6 @@ jobs:
       -
         name: Run tests
         run: gotestsum --format short-verbose ./...
+        env:
+          DD_TRACE_DEBUG: true
 
