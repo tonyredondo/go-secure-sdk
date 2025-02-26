@@ -99,7 +99,7 @@ jobs:
         name: Install Go
         uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5.3.0
         with:
-          go-version: '1.22' # test only the latest go version to speed up CI
+          go-version: '1.23' # test only the latest go version to speed up CI
       -
         name: Cache Go modules
         uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
@@ -116,6 +116,12 @@ jobs:
         uses: autero1/action-gotestsum@7263b9d73912eec65f46337689e59fac865c425f # v2.0.0
         with:
           gotestsum_version: '1.11.0'
+      - 
+        name: Configure Datadog Test Optimization
+        uses: datadog/test-visibility-github-action@v2
+        with:
+          languages: go
+          api_key: ${{secrets.DD_API_KEY}}
       -
         name: Run tests
         run: gotestsum --format short-verbose ./...
@@ -139,7 +145,7 @@ jobs:
         name: Install Go
         uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5.3.0
         with:
-          go-version: '1.22' # test only the latest go version to speed up CI
+          go-version: '1.23' # test only the latest go version to speed up CI
       -
         name: Cache Go modules
         uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
@@ -156,6 +162,12 @@ jobs:
         uses: autero1/action-gotestsum@7263b9d73912eec65f46337689e59fac865c425f # v2.0.0
         with:
           gotestsum_version: '1.11.0'
+      - 
+        name: Configure Datadog Test Optimization
+        uses: datadog/test-visibility-github-action@v2
+        with:
+          languages: go
+          api_key: ${{secrets.DD_API_KEY}}
       -
         name: Run tests
         run: gotestsum --format short-verbose ./...
@@ -196,6 +208,12 @@ jobs:
         uses: autero1/action-gotestsum@7263b9d73912eec65f46337689e59fac865c425f # v2.0.0
         with:
           gotestsum_version: '1.11.0'
+      - 
+        name: Configure Datadog Test Optimization
+        uses: datadog/test-visibility-github-action@v2
+        with:
+          languages: go
+          api_key: ${{secrets.DD_API_KEY}}
       -
         name: Run tests
         run: gotestsum --format short-verbose ./...
